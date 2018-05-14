@@ -1,2 +1,2 @@
 # PetProject
-Web application for calculating concrete mixes
+Web application for the selection of billiard equipment and accessories

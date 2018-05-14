@@ -1,2 +1,2 @@
 # PetProject
-Web application for the selection of billiard equipment and accessories
+Web-application for the selection of billiard equipment and accessories

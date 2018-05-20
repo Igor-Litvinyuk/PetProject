@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "billiard_cues_pyramid")
-public class BilliardCuesPyramid {
+public class PyramidBilliardCues {
 
     @Id
     @Column(name = "Номер")

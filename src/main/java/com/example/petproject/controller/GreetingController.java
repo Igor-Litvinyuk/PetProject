@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -38,6 +39,19 @@ public class GreetingController {
         PyramidBilliardCues pyramidBilliardCues = new PyramidBilliardCues(id, cue, tree, saw, weight, ferule, sticker, length, incrustation, producer, price, state);
         pyramidBilliardCuesRepository.save(pyramidBilliardCues);
         Iterable<PyramidBilliardCues> pyramidBilliardCuesIterable = pyramidBilliardCuesRepository.findAll();
+        model.put("pyramidBilliardCues", pyramidBilliardCuesIterable);
+        return "main";
+    }
+
+    @PostMapping("producerFilter")
+    public String producerFilter(@RequestParam String producerFilter, Map<String, Object> model){
+        Iterable<PyramidBilliardCues> pyramidBilliardCuesIterable;
+        if (producerFilter != null && !producerFilter.isEmpty()){
+            pyramidBilliardCuesIterable = pyramidBilliardCuesRepository.findByProducer(producerFilter);
+        }
+        else {
+            pyramidBilliardCuesIterable = pyramidBilliardCuesRepository.findAll();
+        }
         model.put("pyramidBilliardCues", pyramidBilliardCuesIterable);
         return "main";
     }

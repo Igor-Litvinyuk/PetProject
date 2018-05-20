@@ -7,8 +7,26 @@
     </head>
 
     <body>
-    <div>Billiard cues for Pyramid</div>
-    {{#pyramidBilliardCues}}
+        <div>
+            <form method="post">
+            <input type="number" name="id" placeholder="Номер"/>
+            <input type="text" name="" placeholder="Кий"/>
+            <input type="text" name="" placeholder="Дерево"/>
+            <input type="text" name="" placeholder="Запил"/>
+            <input type="text" name="" placeholder="Вес"/>
+            <input type="text" name="" placeholder="Стакан"/>
+            <input type="text" name="" placeholder="Наклейка"/>
+            <input type="text" name="" placeholder="Длина"/>
+            <input type="text" name="" placeholder="Инкрустация"/>
+            <input type="text" name="" placeholder="Производитель"/>
+            <input type="text" name="" placeholder="Цена"/>
+            <input type="text" name="" placeholder="Статус"/>
+            <button type="submit">Добавить кий в базу данных</button>
+            </form>
+        </div>
+
+        <div>Billiard cues for Pyramid</div>
+        {{#pyramidBilliardCues}}
         <div>
             <b>{{id}}</b>
             <span>{{cue}}</span>

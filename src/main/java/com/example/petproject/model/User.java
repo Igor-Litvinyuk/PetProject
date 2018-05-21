@@ -9,22 +9,21 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+    private Integer id;
     private String username;
-    private String password;
-    private boolean active;
+    private String parole;
+    private String active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,19 +35,19 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getParole() {
+        return parole;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setParole(String parole) {
+        this.parole = parole;
     }
 
-    public boolean isActive() {
+    public String getActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(String active) {
         this.active = active;
     }
 

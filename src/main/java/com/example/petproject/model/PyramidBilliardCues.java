@@ -3,10 +3,10 @@ package com.example.petproject.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "pyramid_billiard_cues")
 public class PyramidBilliardCues {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
     private String cue;
@@ -24,9 +24,8 @@ public class PyramidBilliardCues {
     public PyramidBilliardCues() {
     }
 
-    public PyramidBilliardCues(Integer id, String cue, String tree, String saw, String weight, String ferule,
+    public PyramidBilliardCues(String cue, String tree, String saw, String weight, String ferule,
                                String sticker, String length, String incrustation, String producer, String price, String state) {
-        this.id = id;
         this.cue = cue;
         this.tree = tree;
         this.saw = saw;

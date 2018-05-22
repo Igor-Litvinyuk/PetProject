@@ -28,12 +28,12 @@ public class MainController {
     }
 
     @PostMapping("/main")
-    public String addPyramidBilliardCueToDatabase(@RequestParam Integer id, @RequestParam String cue, @RequestParam String tree,
+    public String addPyramidBilliardCueToDatabase(@RequestParam String cue, @RequestParam String tree,
                                                   @RequestParam String saw, @RequestParam String weight, @RequestParam String ferule,
                                                   @RequestParam String sticker, @RequestParam String length, @RequestParam String incrustation,
                                                   @RequestParam String producer, @RequestParam String price, @RequestParam String state,
                                                   Map<String, Object> model){
-        PyramidBilliardCues pyramidBilliardCues = new PyramidBilliardCues(id, cue, tree, saw, weight, ferule, sticker, length, incrustation, producer, price, state);
+        PyramidBilliardCues pyramidBilliardCues = new PyramidBilliardCues(cue, tree, saw, weight, ferule, sticker, length, incrustation, producer, price, state);
         pyramidBilliardCuesRepository.save(pyramidBilliardCues);
         Iterable<PyramidBilliardCues> pyramidBilliardCuesIterable = pyramidBilliardCuesRepository.findAll();
         model.put("pyramidBilliardCues", pyramidBilliardCuesIterable);

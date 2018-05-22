@@ -10,7 +10,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
-    private String parole;
+    private String password;
     private String active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
@@ -34,12 +34,12 @@ public class User {
         this.username = username;
     }
 
-    public String getParole() {
-        return parole;
+    public String getPassword() {
+        return password;
     }
 
-    public void setParole(String parole) {
-        this.parole = parole;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getActive() {

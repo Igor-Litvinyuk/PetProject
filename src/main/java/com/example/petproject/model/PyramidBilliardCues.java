@@ -6,6 +6,21 @@ import javax.persistence.*;
 @Table(name = "pyramid_billiard_cues")
 public class PyramidBilliardCues {
 
+    @Id
+    private Integer id;
+
+    private String cue;
+    private String tree;
+    private String saw;
+    private String weight;
+    private String ferule;
+    private String sticker;
+    private String length;
+    private String incrustation;
+    private String producer;
+    private String price;
+    private String state;
+
     public PyramidBilliardCues() {
     }
 
@@ -24,43 +39,6 @@ public class PyramidBilliardCues {
         this.price = price;
         this.state = state;
     }
-
-    @Id
-    @Column(name = "id")
-    private Integer id;
-
-    @Column(name = "cue")
-    private String cue;
-
-    @Column(name = "tree")
-    private String tree;
-
-    @Column(name = "saw")
-    private String saw;
-
-    @Column(name = "weight")
-    private String weight;
-
-    @Column(name = "ferule")
-    private String ferule;
-
-    @Column(name = "sticker")
-    private String sticker;
-
-    @Column(name = "length")
-    private String length;
-
-    @Column(name = "incrustation")
-    private String incrustation;
-
-    @Column(name = "producer")
-    private String producer;
-
-    @Column(name = "price")
-    private String price;
-
-    @Column(name = "state")
-    private String state;
 
     public Integer getId() {
         return id;

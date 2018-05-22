@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface PyramidBilliardCuesRepository extends CrudRepository<PyramidBilliardCues, Integer> {
+public interface PyramidBilliardCuesRepository extends CrudRepository<PyramidBilliardCues, Long> {
 
     List<PyramidBilliardCues> findByProducer(String producer);
 }

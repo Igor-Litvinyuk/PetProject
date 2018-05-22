@@ -1,8 +1,8 @@
 package com.example.petproject.controller;
 
-import com.example.petproject.model.Role;
-import com.example.petproject.model.User;
-import com.example.petproject.repository.UserRepository;
+import com.example.petproject.domain.Role;
+import com.example.petproject.domain.User;
+import com.example.petproject.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,23 +14,26 @@ import java.util.Map;
 @Controller
 public class RegistrationController {
     @Autowired
-    private UserRepository userRepository;
+    private UserRepo userRepo;
 
     @GetMapping("/registration")
-    public String registration(){
+    public String registration() {
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String addUser(User user, Map<String, Object> model){
-        User userFromDatabase = userRepository.findByUsername(user.getUsername());
-        if (userFromDatabase != null){
+    public String addUser(User user, Map<String, Object> model) {
+        User userFromDb = userRepo.findByUsername(user.getUsername());
+
+        if (userFromDb != null) {
             model.put("message", "User exists!");
             return "registration";
         }
-        user.setActive("yes");
+
+        user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-        userRepository.save(user);
+        userRepo.save(user);
+
         return "redirect:/login";
     }
 }

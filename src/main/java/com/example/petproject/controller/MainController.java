@@ -1,7 +1,7 @@
 package com.example.petproject.controller;
 
-import com.example.petproject.model.PyramidBilliardCues;
-import com.example.petproject.repository.PyramidBilliardCuesRepository;
+import com.example.petproject.domain.Message;
+import com.example.petproject.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,7 @@ import java.util.Map;
 @Controller
 public class MainController {
     @Autowired
-    private PyramidBilliardCuesRepository pyramidBilliardCuesRepository;
+    private MessageRepo messageRepo;
 
     @GetMapping("/")
     public String greeting(Map<String, Object> model) {
@@ -21,35 +21,39 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(Map<String, Object> model){
-        Iterable<PyramidBilliardCues> pyramidBilliardCuesIterable = pyramidBilliardCuesRepository.findAll();
-        model.put("pyramidBilliardCues", pyramidBilliardCuesIterable);
+    public String main(Map<String, Object> model) {
+        Iterable<Message> messages = messageRepo.findAll();
+
+        model.put("messages", messages);
+
         return "main";
     }
 
     @PostMapping("/main")
-    public String addPyramidBilliardCueToDatabase(@RequestParam String cue, @RequestParam String tree,
-                                                  @RequestParam String saw, @RequestParam String weight, @RequestParam String ferule,
-                                                  @RequestParam String sticker, @RequestParam String length, @RequestParam String incrustation,
-                                                  @RequestParam String producer, @RequestParam String price, @RequestParam String state,
-                                                  Map<String, Object> model){
-        PyramidBilliardCues pyramidBilliardCues = new PyramidBilliardCues(cue, tree, saw, weight, ferule, sticker, length, incrustation, producer, price, state);
-        pyramidBilliardCuesRepository.save(pyramidBilliardCues);
-        Iterable<PyramidBilliardCues> pyramidBilliardCuesIterable = pyramidBilliardCuesRepository.findAll();
-        model.put("pyramidBilliardCues", pyramidBilliardCuesIterable);
+    public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model) {
+        Message message = new Message(text, tag);
+
+        messageRepo.save(message);
+
+        Iterable<Message> messages = messageRepo.findAll();
+
+        model.put("messages", messages);
+
         return "main";
     }
 
-    @PostMapping("producerFilter")
-    public String producerFilter(@RequestParam String producerFilter, Map<String, Object> model){
-        Iterable<PyramidBilliardCues> pyramidBilliardCuesIterable;
-        if (producerFilter != null && !producerFilter.isEmpty()){
-            pyramidBilliardCuesIterable = pyramidBilliardCuesRepository.findByProducer(producerFilter);
+    @PostMapping("filter")
+    public String filter(@RequestParam String filter, Map<String, Object> model) {
+        Iterable<Message> messages;
+
+        if (filter != null && !filter.isEmpty()) {
+            messages = messageRepo.findByTag(filter);
+        } else {
+            messages = messageRepo.findAll();
         }
-        else {
-            pyramidBilliardCuesIterable = pyramidBilliardCuesRepository.findAll();
-        }
-        model.put("pyramidBilliardCues", pyramidBilliardCuesIterable);
+
+        model.put("messages", messages);
+
         return "main";
     }
 }

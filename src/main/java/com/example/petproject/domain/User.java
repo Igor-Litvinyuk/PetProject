@@ -1,4 +1,4 @@
-package com.example.petproject.model;
+package com.example.petproject.domain;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,7 +11,7 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private String active;
+    private boolean active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
@@ -42,11 +42,11 @@ public class User {
         this.password = password;
     }
 
-    public String getActive() {
+    public boolean isActive() {
         return active;
     }
 
-    public void setActive(String active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
 

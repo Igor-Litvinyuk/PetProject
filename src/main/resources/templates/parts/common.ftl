@@ -1,8 +1,8 @@
 <#macro page>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset=UTF-8"/>
+    <meta charset="UTF-8">
     <title>Billiard application</title>
 </head>
 <body>

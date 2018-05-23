@@ -1,5 +1,6 @@
 package com.example.petproject.controller;
 
+import com.example.petproject.domain.Role;
 import com.example.petproject.domain.User;
 import com.example.petproject.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class UserController {
     @GetMapping("{user}")
     public String userEditForm(@PathVariable User user, Model model){
         model.addAttribute("user", user);
+        model.addAttribute("roles", Role.values());
         return "userEdit";
     }
 }

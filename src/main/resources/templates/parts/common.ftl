@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Billiard application</title>
+    <link rel="stylesheet" href="/static/static.css">
 </head>
 <body>
 <#nested>

@@ -2,5 +2,5 @@
 
 <@c.page>
 <h5>Hello, guest</h5>
-<div>Have a good mood!</div>
+<div>This is a web-application Billiardino! Have a good moon!</div>
 </@c.page>

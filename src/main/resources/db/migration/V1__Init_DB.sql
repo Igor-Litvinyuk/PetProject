@@ -1,9 +1,5 @@
-create table hibernate_sequence (next_val bigint);
-insert into hibernate_sequence values ( 1 );
-insert into hibernate_sequence values ( 1 );
-
 create table message (
-    id bigint not null,
+    id bigint not null auto_increment,
     filename varchar(255),
     tag varchar(255),
     text varchar(2048) not null,
@@ -17,7 +13,7 @@ create table user_role (
 );
 
 create table usr (
-    id bigint not null,
+    id bigint not null auto_increment,
     activation_code varchar(255),
     active bit not null,
     email varchar(255),

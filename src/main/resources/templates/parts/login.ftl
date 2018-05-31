@@ -37,9 +37,9 @@
                     <div class="invalid-feedback">
                         ${password2Error}
                     </div>
-            </#if>
+                </#if>
+            </div>
         </div>
-    </div>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Email:</label>
         <div class="col-sm-6">
@@ -52,6 +52,14 @@
                     </div>
             </#if>
         </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="g-recaptcha" data-sitekey="6LdHgVwUAAAAAIbawnbQ-yQKlyUFBO6fHBqMTfNM"></div>
+        <#if captchaError??>
+            <div class="alert alert-danger" role="alert">
+                ${captchaError}
+            </div>
+        </#if>
     </div>
     </#if>
     <input type="hidden" name="_csrf" value="${_csrf.token}" />

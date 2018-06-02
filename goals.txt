@@ -1,0 +1,34 @@
+1. Spring Boot - OK;
+2. Spring Boot JPA (Hibernate): databases - OK;
+3. Spring Boot Security: registration - OK;
+4. Spring Boot Security: authorization - OK;
+5. Spring Boot JPA (Hibernate): links between tables - OK;
+6. Spring Boot Freemarker - OK;
+7. Spring Boot Security: admin panel - OK;
+8. Spring Boot Security: user roles - OK;
+9. Spring Boot MVC: uploading files to the server - OK;
+10. Spring Boot MVC: distribution of statics - OK;
+11. Spring Boot Bootstrap: user interface - OK;
+12. Spring Boot Mail: mailing to users - OK;
+13. Spring Boot Mail: account activation - OK;
+14. Spring Boot FlyWay: database migration - OK;
+15. Spring Boot: user profile - OK;
+16. Spring Boot: bean validation - OK;
+17. Spring Boot: password encryption - OK;
+18. Spring Boot: reCaptcha - OK;
+19. Spring Boot: rest client - OK;
+20. Spring Boot: rememberMe - OK;
+
+21. Spring Boot: tournaments panel;
+22. Spring Boot: adding a tournament for admin;
+23. Spring Boot: account deleting;
+24. HTML/CSS: feedback for user;
+25. CSS: appearance design;
+26. JUnit: testing;
+27. Log4j: logging;
+28. Spring Boot: deploy;
+29. Profile photo;
+30. Player stats;
+
+
+
